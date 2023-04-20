@@ -81,7 +81,7 @@ export const Home = () => {
               <span id="errEmail"></span>
 
               <button type="submit" className={scss.button}>
-                Submit
+                Sign Up
               </button>
             </form>
           </div>
