@@ -6,6 +6,24 @@
   min-height: 100vh;
 
   .content {
+    // display: flex;
+    // justify-content: center;
+    // align-items: center;
+
+    // gap: 3rem;
+
+    .box {
+      max-width: 550px;
+      height: 600px;
+      width: 100vw;
+
+      border-radius: 1rem;
+
+      background: url("https://wallpapers-clan.com/wp-content/uploads/2022/11/meme-gif-pfp-21.gif")
+        no-repeat center;
+      background-size: cover;
+    }
+
     .form {
       max-width: 450px;
       width: 100vw;
@@ -19,20 +37,36 @@
 
       gap: 1rem;
 
+      .title {
+        padding-bottom: 2rem;
+
+        h3 {
+          font-size: 2rem;
+          color: #fff;
+        }
+      }
+
       .input {
         width: 100%;
 
-        padding: 1rem 1.5rem;
+        padding: 1.1rem 1.5rem;
 
         background-color: #fff;
 
         border: 0;
-
+        border-radius: 0.1rem;
         outline: 1px solid #bebebe;
+
+        font-size: 1.2rem;
 
         &::placeholder {
           font-size: 1rem;
-          color: #dfdfdf;
+          color: #747a86;
+          transition: 0.4s;
+        }
+
+        &:focus::placeholder {
+          color: #eaeaea;
         }
       }
 
@@ -47,20 +81,39 @@
         padding: 1rem 0;
 
         border: 0;
+        border-radius: 0.1rem;
 
-        background-color: #007bff;
+        background: #0051ff;
+        box-shadow: 0 0 1rem #0051ff;
+
         color: #fff;
 
-        font-size: 1rem;
+        font-size: 1.1rem;
+        font-family: "Proxima Nova", sans-serif;
         letter-spacing: 0.1rem;
-        font-weight: 500;
+        font-weight: 600;
 
         transition: 0.4s;
 
         &:hover {
-          background-color: #0072eb;
+          background: #0048e4;
         }
       }
     }
   }
 }
+
+// @media (max-width: 1047px) {
+//   .home_page {
+//     .content {
+//       flex-direction: column;
+//       gap: 0;
+
+//       .box {
+//         height: 100px;
+//         max-width: 380px;
+//         margin-bottom: 5rem;
+//       }
+//     }
+//   }
+// }

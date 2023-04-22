@@ -5,6 +5,7 @@ import scss from "./Home.module.scss";
 export const Home = () => {
   const [username, setUsername] = useState("");
   const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
 
   const handleChangeUsername = (e) => {
     setUsername(e.target.value);
@@ -12,6 +13,10 @@ export const Home = () => {
 
   const handleChangeEmail = (e) => {
     setEmail(e.target.value);
+  };
+
+  const handleChangePassword = (e) => {
+    setPassword(e.target.value);
   };
 
   const sendData = async (e) => {
@@ -29,14 +34,16 @@ export const Home = () => {
       errEmail.innerText = "";
     }
 
-    setUsername("");
-    setEmail("");
-
     try {
-      await axios.post("http://localhost:5686/post_users", {
+      await axios.post("http://localhost:5686/api/post_users", {
         username,
         email,
+        password,
       });
+
+      setUsername("");
+      setEmail("");
+      setPassword("");
 
       alert("Success!");
     } catch (err) {
@@ -59,7 +66,12 @@ export const Home = () => {
       <div className={scss.home_page}>
         <div className="container">
           <div className={scss.content}>
+            {/* <div className={scss.box}></div> */}
             <form onSubmit={sendData} className={scss.form}>
+              <div className={scss.title}>
+                <h3>Sign Up</h3>
+              </div>
+
               <input
                 required
                 type="text"
@@ -79,6 +91,16 @@ export const Home = () => {
                 onChange={handleChangeEmail}
               />
               <span id="errEmail"></span>
+
+              <input
+                required
+                type="password"
+                placeholder="Password*"
+                value={password}
+                className={scss.input}
+                onChange={handleChangePassword}
+              />
+              <span id="errPassword"></span>
 
               <button type="submit" className={scss.button}>
                 Sign Up

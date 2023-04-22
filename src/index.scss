@@ -16,5 +16,10 @@ body {
 
   min-height: 100vh;
 
+  background: linear-gradient(rgba(16, 24, 39, 0.227), rgb(7, 11, 19)),
+    url("https://media11.s-nbcnews.com/i/mpx/2704722219/2022_08/1659481812778_nn_gsc_feeling_the_metaverse_220802_1920x1080-zbrydn.jpg")
+      no-repeat center;
+  background-size: cover;
+
   font-family: "Proxima Nova", sans-serif;
 }
